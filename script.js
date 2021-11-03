@@ -1,5 +1,5 @@
 // Assignment code here
-
+var lowercase = ["a","b","c","d","e","f", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -9,9 +9,38 @@ function userInput() {
   if (passwordLength>128) {alert("Choose a smaller number!"); return null };
 
   var passwordLower = confirm("Would you like lower case characters in your password?");
+  if (confirm-passwordLower) {
+    
+  }
+  else {
+
+  }
+  var passwordUpper = confrim("Would you like upper case characters in your password?");
+  if (confirm-passwordUpper) {
+
+  }
+  else {
+
+  }
+  var passwordNum = confirm("Would you like numbers to be included in your password?");
+  var passwordCharacter = confirm("Would you like your password to include special characters?");
+
+  var inoutObj = {
+    Length : passwordLength,
+    Lower : passwordLower,
+    Upper : passwordUpper,
+    Num   : passwordNum,
+    Character : passwordCharacter
+  }
+  return inoutObj;
 }
 function generatePassword() {
   var userInputs = userInput();
+  console.log(userInputs.Length)
+  console.log(userInputs.Lower)
+  console.log(userInputs.Upper)
+  console.log(userInputs.Num)
+  console.log(userInputs.Character)
 }
 
 // Write password to the #password input
