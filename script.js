@@ -10,12 +10,13 @@ function userInput() {
 
   var passwordLower = confirm("Would you like lower case characters in your password?");
   if (confirm-passwordLower) {
-    
+    const lowercase = lowercase[Math.floor(Math.random() * lowercase.length)];
+    console.log(random, lowercase[random]);
   }
   else {
-
+    
   }
-  var passwordUpper = confrim("Would you like upper case characters in your password?");
+  var passwordUpper = confirm("Would you like upper case characters in your password?");
   if (confirm-passwordUpper) {
 
   }
