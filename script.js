@@ -9,28 +9,33 @@ var passwordUpper = false;
 var passwordNum = false;
 var passwordCharacter = false;
 
+var passwordLength = 0;
+
 // Get references to the #generate element
 function userInput() {
   while (true) {
-    var passwordLength = prompt("How long do you want your password to be? (Must be between 8 and 128 characters", 8);
+    passwordLength = prompt("How long do you want your password to be? (Must be between 8 and 128 characters", 8);
     if ((passwordLength %1) != 0 || passwordLength < 8 || passwordLength > 128) {
       alert("Invalid input");
-    } 
+    }
     else {
     break;
     }
   }
-  passwordLower = confirm("Would you like lowercase characters in your password?");
- 
-
-  passwordUpper = confirm("Would you like upper case characters in your password?");
-
-
-  passwordNum = confirm("Would you like numbers to be included in your password?");
-
-  passwordCharacter = confirm("Would you like your password to include special characters?");
-
+  while (passwordLower == false && passwordUpper == false && passwordNum == false && passwordCharacter == false) {
+    passwordLower = confirm("Would you like lowercase characters in your password?");
+    passwordUpper = confirm("Would you like upper case characters in your password?");
+    passwordNum = confirm("Would you like numbers to be included in your password?");
+    passwordCharacter = confirm("Would you like your password to include special characters?");
+    if (passwordLower == false && passwordUpper == false && passwordNum == false && passwordCharacter == false) {
+        window.alert("Please choose at least one option.");
+      }
+    else {
+    break;
+    }
+  } 
 }
+
 function createPassword() {
   var parameter = "";
   var pass = "";
@@ -50,20 +55,22 @@ function createPassword() {
      var newChar = Math.floor(Math.random() * parameter.length);
     pass = pass + parameter.charAt(newChar);
   }
+
+  return pass;
 }
 
 
 var generateBtn = document.querySelector("#generate");
 function generatePassword() {
-  var userInputs = userInput();
-  console.log(userInputs.Length)
-  console.log(userInputs.Lower)
-  console.log(userInputs.Upper)
-  console.log(userInputs.Num)
-  console.log(userInputs.Character)
+  userInput();
+  console.log(passwordLength)
+  console.log(passwordLower)
+  console.log(passwordUpper)
+  console.log(passwordNum)
+  console.log(passwordCharacter)
 
-  var length = userInput (passwordLength)
-
+  var userPass = createPassword ();
+  return userPass;
 }
 
 // Write password to the #password input
