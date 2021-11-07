@@ -1,16 +1,20 @@
 // Assignment code here
-var lowercase = ["a","b","c","d","e","f", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var character = ["!", "#", "$", "@","*", "^", "%"];
+const lowercase = "abcdefghijklmnopqrstuvwxyz";
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const number = "123456789";
+const character = "!@#$%^*&*()";
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 function userInput() {
-  var passwordLength = prompt("How long do you want your password to be?", 8);
-  if (passwordLength<8) {alert("Choose a number bigger than 8"); return null};
-  if (passwordLength>128) {alert("Choose a smaller number!"); return null };
-
+  while (true) {
+    var passwordLength = prompt("How long do you want your password to be? (Must be between 8 and 128 characters", 8);
+    if ((passwordLength %1) != 0 || passwordLength < 8 || passwordLength > 128) {
+      alert("Invalid input");
+    } 
+    else {
+    break;
+    }
+  }
   var passwordLower = confirm("Would you like lower case characters in your password?");
   if (confirm-passwordLower) {
     const lowercase = lowercase[Math.floor(Math.random() * lowercase.length)];
@@ -20,7 +24,6 @@ function userInput() {
   var passwordUpper = confirm("Would you like upper case characters in your password?");
   if (confirm-passwordUpper) {
     const uppercase = uppercase[Math.floor(Math.random() * lowercase.length)];
-
   }
 
   var passwordNum = confirm("Would you like numbers to be included in your password?");
@@ -29,7 +32,7 @@ function userInput() {
   }
   var passwordCharacter = confirm("Would you like your password to include special characters?");
   if (confirm-passwordCharacter) {
-    const character = character[Math.floor(Math.random() * character.length)]
+    const character = character[Math.floor(Math.random() * character.length)];
   }
 
   var inoutObj = {
@@ -37,11 +40,11 @@ function userInput() {
     Lower : passwordLower,
     Upper : passwordUpper,
     Num   : passwordNum,
-    Character : passwordCharacter
+    Character : passwordCharacter,
   }
   return inoutObj;
 }
-
+var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   var userInputs = userInput();
   console.log(userInputs.Length)
@@ -50,7 +53,8 @@ function generatePassword() {
   console.log(userInputs.Num)
   console.log(userInputs.Character)
 
-  generatePassword ();
+  var length = userInput (passwordLength)
+
 }
 
 // Write password to the #password input
