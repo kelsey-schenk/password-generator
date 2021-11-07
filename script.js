@@ -4,6 +4,11 @@ const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const number = "123456789";
 const character = "!@#$%^*&*()";
 
+var passwordLower = false;
+var passwordUpper = false;
+var passwordNum = false;
+var passwordCharacter = false;
+
 // Get references to the #generate element
 function userInput() {
   while (true) {
@@ -15,35 +20,39 @@ function userInput() {
     break;
     }
   }
-  var passwordLower = confirm("Would you like lower case characters in your password?");
-  if (confirm-passwordLower) {
-    const lowercase = lowercase[Math.floor(Math.random() * lowercase.length)];
-    console.log(random, lowercase[random]);
-  }
+  passwordLower = confirm("Would you like lowercase characters in your password?");
+ 
 
-  var passwordUpper = confirm("Would you like upper case characters in your password?");
-  if (confirm-passwordUpper) {
-    const uppercase = uppercase[Math.floor(Math.random() * lowercase.length)];
-  }
+  passwordUpper = confirm("Would you like upper case characters in your password?");
 
-  var passwordNum = confirm("Would you like numbers to be included in your password?");
-  if (confirm-passwordNum) {
-    const number = number[Math.floor(Math.random() * number.length)];
-  }
-  var passwordCharacter = confirm("Would you like your password to include special characters?");
-  if (confirm-passwordCharacter) {
-    const character = character[Math.floor(Math.random() * character.length)];
-  }
 
-  var inoutObj = {
-    Length : passwordLength,
-    Lower : passwordLower,
-    Upper : passwordUpper,
-    Num   : passwordNum,
-    Character : passwordCharacter,
-  }
-  return inoutObj;
+  passwordNum = confirm("Would you like numbers to be included in your password?");
+
+  passwordCharacter = confirm("Would you like your password to include special characters?");
+
 }
+function createPassword() {
+  var parameter = "";
+  var pass = "";
+  if (passwordLower) {
+    parameter = parameter + lowercase;
+  }
+  if (passwordUpper) {
+    parameter = parameter + uppercase;
+  }
+  if (passwordNum) {
+    parameter = parameter + number;
+  }
+  if (passwordCharacter) {
+    parameter = parameter + character;
+  }
+  for (i = 0; i < passwordLength; i++) {
+     var newChar = Math.floor(Math.random() * parameter.length);
+    pass = pass + parameter.charAt(newChar);
+  }
+}
+
+
 var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   var userInputs = userInput();
